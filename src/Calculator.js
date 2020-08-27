@@ -19,6 +19,11 @@ class Calculator extends Component {
         this.setState({results: results})
     } 
 
+    subtractNumber= e => {
+        let results = parseInt(this.state.num1)-parseInt(this.state.num2)
+        this.setState({results: results})
+    } 
+
     render(){
         return (
             <div className="container">
@@ -30,14 +35,15 @@ class Calculator extends Component {
                     value={this.state.num1}
                     onChange={ (e) => this.setNum(e, 'num1') }
                     />      
-                <span>+</span>
+                <span onClick={(e)=> this.addNumber(e)}>+</span>
+                <span onClick={(e)=> this.subtractNumber(e)}>-</span>
                 <input type="number"
                     name="num2"
                     placeholder="second number"
                     value={this.state.num2}
                     onChange={ (e) => this.setNum(e, 'num2') }
                     />
-                <button onClick={(e) => this.addNumber(e)}>=</button>
+                {/* <button onClick={(e) => this.addNumber(e)}>=</button> */}
                 <h3>{this.state.results}</h3>
                 </div>
             </div>
